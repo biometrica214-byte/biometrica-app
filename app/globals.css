@@ -1,0 +1,171 @@
+/* ==========================================================================
+   Biométrica — tokens e base compartilhados por site, autenticação e app.
+   Estilos específicos ficam em site.css (landing) e nos *.module.css.
+   ========================================================================== */
+
+:root{
+  --paper:#F6F4EC;
+  --paper-dim:#EEEBDE;
+  --ink:#1B231F;
+  --ink-soft:#4C564F;
+  --ink-faint:#6E766D;
+  --line:#D9D5C4;
+  --teal:#0E5C53;
+  --teal-deep:#0A423C;
+  --teal-wash:rgba(14,92,83,0.08);
+  --gold:#AD8329;
+  --danger:#A3372B;
+  --danger-wash:rgba(163,55,43,0.08);
+  --white:#FFFFFF;
+  --shadow: 0 1px 2px rgba(27,35,31,0.06);
+  --radius: 4px;
+  --maxw: 1180px;
+  --serif: var(--font-serif), Georgia, serif;
+  --sans: var(--font-sans), system-ui, sans-serif;
+  --mono: var(--font-mono), ui-monospace, monospace;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --paper:#15201C;
+    --paper-dim:#1B2822;
+    --ink:#F1EFE6;
+    --ink-soft:#C7CCC3;
+    --ink-faint:#949C92;
+    --line:#33403A;
+    --teal:#4FB3A6;
+    --teal-deep:#3A8C81;
+    --teal-wash:rgba(79,179,166,0.12);
+    --gold:#D9AE5C;
+    --danger:#E58A7E;
+    --danger-wash:rgba(229,138,126,0.12);
+    --white:#1B2822;
+    --shadow: 0 1px 2px rgba(0,0,0,0.3);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"]{
+  --paper:#15201C;
+  --paper-dim:#1B2822;
+  --ink:#F1EFE6;
+  --ink-soft:#C7CCC3;
+  --ink-faint:#949C92;
+  --line:#33403A;
+  --teal:#4FB3A6;
+  --teal-deep:#3A8C81;
+  --teal-wash:rgba(79,179,166,0.12);
+  --gold:#D9AE5C;
+  --danger:#E58A7E;
+  --danger-wash:rgba(229,138,126,0.12);
+  --white:#1B2822;
+  --shadow: 0 1px 2px rgba(0,0,0,0.3);
+  color-scheme: dark;
+}
+
+*{box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{
+  margin:0;
+  background:var(--paper);
+  color:var(--ink);
+  font-family:var(--sans);
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+img{max-width:100%; display:block;}
+a{color:inherit;}
+h1,h2,h3{font-family:var(--serif); font-weight:500; letter-spacing:-0.01em; margin:0;}
+.mono{font-family:var(--mono);}
+
+a:focus-visible, button:focus-visible, summary:focus-visible, input:focus-visible, select:focus-visible{
+  outline:2px solid var(--teal); outline-offset:3px;
+}
+
+.sr-only{
+  position:absolute; width:1px; height:1px; padding:0; margin:-1px;
+  overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+}
+
+/* Marca -------------------------------------------------------------------- */
+.brand{
+  display:inline-flex; align-items:center; gap:10px;
+  font-family:var(--serif); font-size:22px; font-weight:600;
+  text-decoration:none; color:var(--ink);
+}
+.brand-mark{width:20px; height:20px; flex:none;}
+
+/* Botões ------------------------------------------------------------------- */
+.btn{
+  display:inline-flex; align-items:center; justify-content:center; gap:8px;
+  min-height:44px; padding:12px 24px; font:inherit; font-size:15.5px; font-weight:500;
+  text-decoration:none; border-radius:var(--radius); cursor:pointer;
+  transition:background .15s ease, border-color .15s ease, color .15s ease, transform .1s ease;
+}
+.btn:active{transform:translateY(1px);}
+.btn[disabled], .btn[aria-disabled="true"]{opacity:.6; cursor:not-allowed; transform:none;}
+.btn-primary{background:var(--teal); color:var(--paper); border:1px solid var(--teal);}
+.btn-primary:hover:not([disabled]){background:var(--teal-deep); border-color:var(--teal-deep);}
+.btn-ghost{background:transparent; color:var(--ink); border:1px solid var(--line);}
+.btn-ghost:hover:not([disabled]){border-color:var(--ink-faint);}
+.btn-danger{background:transparent; color:var(--danger); border:1px solid color-mix(in srgb, var(--danger) 45%, transparent);}
+.btn-danger:hover:not([disabled]){background:var(--danger-wash);}
+.btn-link{
+  background:none; border:none; padding:0; min-height:0; font:inherit; font-size:14.5px;
+  color:var(--teal); text-decoration:underline; text-underline-offset:3px; cursor:pointer;
+}
+.btn-block{width:100%;}
+
+/* Formulários -------------------------------------------------------------- */
+.field{display:flex; flex-direction:column; gap:6px;}
+.field + .field{margin-top:18px;}
+.field-row{display:grid; grid-template-columns:1fr 1fr; gap:14px;}
+.field-row + .field, .field + .field-row, .field-row + .field-row{margin-top:18px;}
+.field-row .field + .field{margin-top:0;}
+@media (max-width:480px){ .field-row{grid-template-columns:1fr;} .field-row .field + .field{margin-top:18px;} }
+.field label, .field .label{font-size:14px; font-weight:500; color:var(--ink);}
+.field .hint{font-size:13px; color:var(--ink-faint);}
+.input{
+  width:100%; min-height:46px; padding:11px 14px;
+  font:inherit; font-size:16px; color:var(--ink);
+  background:var(--white); border:1px solid var(--line); border-radius:var(--radius);
+  transition:border-color .15s ease, box-shadow .15s ease;
+}
+.input:hover{border-color:var(--ink-faint);}
+.input:focus{outline:none; border-color:var(--teal); box-shadow:0 0 0 3px var(--teal-wash);}
+.input[aria-invalid="true"]{border-color:var(--danger);}
+.input[readonly]{background:var(--paper-dim); color:var(--ink-soft); cursor:default;}
+.field-error{font-size:13px; color:var(--danger);}
+
+.check{
+  display:flex; gap:12px; align-items:flex-start; cursor:pointer;
+  font-size:14.5px; color:var(--ink-soft); line-height:1.5;
+}
+.check input{
+  flex:none; width:20px; height:20px; margin:1px 0 0; accent-color:var(--teal); cursor:pointer;
+}
+.check strong{color:var(--ink); font-weight:500;}
+
+/* Mensagens ---------------------------------------------------------------- */
+.notice{
+  display:flex; gap:10px; align-items:flex-start;
+  padding:12px 14px; border-radius:6px; font-size:14px; line-height:1.5;
+  border:1px solid var(--line); background:var(--paper-dim); color:var(--ink-soft);
+}
+.notice-error{border-color:color-mix(in srgb, var(--danger) 35%, transparent); background:var(--danger-wash); color:var(--danger);}
+.notice-success{border-color:color-mix(in srgb, var(--teal) 35%, transparent); background:var(--teal-wash); color:var(--teal);}
+
+.tag{
+  display:inline-block; font-size:11px; font-weight:500; line-height:1.4;
+  padding:2px 8px; border-radius:10px;
+  background:var(--paper-dim); color:var(--ink-faint); border:1px solid var(--line);
+}
+.tag-draft{background:rgba(173,131,41,0.12); color:var(--gold); border-color:rgba(173,131,41,0.3);}
+
+.spinner{
+  width:16px; height:16px; border-radius:50%;
+  border:2px solid currentColor; border-right-color:transparent;
+  animation:spin .7s linear infinite;
+}
+@keyframes spin{to{transform:rotate(360deg);}}
+@media (prefers-reduced-motion:reduce){ .spinner{animation-duration:2s;} }
