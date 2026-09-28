@@ -40,6 +40,17 @@ export function validateBirthDate(value: string): string | undefined {
   if (date.getUTCFullYear() < 1900 || date.getTime() > Date.now()) return "Informe uma data válida.";
 }
 
+/** Data obrigatória no formato AAAA-MM-DD, entre 1900 e hoje. */
+export function validateRequiredDate(value: string, label: string): string | undefined {
+  if (!value) return `Informe a ${label}.`;
+  const error = validateBirthDate(value);
+  if (error) return `Informe uma ${label} válida (não pode ser no futuro).`;
+}
+
+export function validateOptionalText(value: string, max: number, label: string): string | undefined {
+  if (value.length > max) return `${label} pode ter no máximo ${max} caracteres.`;
+}
+
 export function text(form: FormData, key: string): string {
   const value = form.get(key);
   return typeof value === "string" ? value.trim() : "";

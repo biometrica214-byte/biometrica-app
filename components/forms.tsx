@@ -41,7 +41,7 @@ export function FormMessage({ state }: { state: ActionState }) {
 
 type FieldProps = {
   name: string;
-  label: string;
+  label: React.ReactNode;
   error?: string;
   hint?: React.ReactNode;
 } & React.InputHTMLAttributes<HTMLInputElement>;

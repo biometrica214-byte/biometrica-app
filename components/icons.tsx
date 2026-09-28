@@ -16,4 +16,15 @@ export const IconClose = (p: P) => (<svg {...base} {...p}><path d="M4.5 4.5l11 1
 export const IconPlus = (p: P) => (<svg {...base} {...p}><path d="M10 4v12M4 10h12" /></svg>);
 export const IconArrow = (p: P) => (<svg {...base} {...p}><path d="M4 10h12M11 5l5 5-5 5" /></svg>);
 export const IconShield = (p: P) => (<svg {...base} {...p}><path d="M10 2 17 5v4.5c0 4.1-3 7.4-7 8.5-4-1.1-7-4.4-7-8.5V5z" /></svg>);
-export const IconCheck = (p: P) => (<svg {...base} {...p}><path d="M4 10.5l4 4 8-9" /></svg>);
+export const IconSearch = (p: P) => (<svg {...base} {...p}><circle cx="9" cy="9" r="5.5" /><path d="M13 13l4 4" /></svg>);
+export const IconUpload = (p: P) => (<svg {...base} {...p}><path d="M10 13V3.5M6 7.5l4-4 4 4M3.5 13v3.5h13V13" /></svg>);
+export const IconCamera = (p: P) => (<svg {...base} {...p}><path d="M2.5 6.5h3l1.5-2h6l1.5 2h3v10h-15z" /><circle cx="10" cy="11" r="3" /></svg>);
+export const IconFile = (p: P) => (<svg {...base} {...p}><path d="M5 2.5h7l3 3v12H5z" /><path d="M12 2.5v3h3" /></svg>);
+export const IconImage = (p: P) => (<svg {...base} {...p}><rect x="2.5" y="3.5" width="15" height="13" rx="1.5" /><circle cx="7" cy="8" r="1.5" /><path d="M2.5 14l4.5-4 3.5 3 2.5-2 4.5 4" /></svg>);
+export const IconTrash = (p: P) => (<svg {...base} {...p}><path d="M3.5 5.5h13M8 5.5V3.5h4v2M5 5.5l.8 11h8.4l.8-11M8.5 9v4.5M11.5 9v4.5" /></svg>);
+export const IconDownload = (p: P) => (<svg {...base} {...p}><path d="M10 3v9.5M6 8.5l4 4 4-4M3.5 16.5h13" /></svg>);
+export const IconExternal = (p: P) => (<svg {...base} {...p}><path d="M11 3.5h5.5V9M16.5 3.5 9 11M14 12v4.5H3.5V6H8" /></svg>);
+export const IconEdit = (p: P) => (<svg {...base} {...p}><path d="M13 3.5l3.5 3.5L7 16.5H3.5V13z" /></svg>);
+export const IconChevron = (p: P) => (<svg {...base} {...p}><path d="M8 5l5 5-5 5" /></svg>);
+export const IconAlert = (p: P) => (<svg {...base} {...p}><circle cx="10" cy="10" r="7.5" /><path d="M10 6v5M10 14h.01" /></svg>);
+export const IconCheck =(p: P) => (<svg {...base} {...p}><path d="M4 10.5l4 4 8-9" /></svg>);

@@ -78,7 +78,7 @@ export async function completeOnboarding(form: FormData) {
   if (error) throw new Error(SAVE_ERROR);
 
   revalidatePath("/app", "layout");
-  redirect(form.get("destination") === "exams" ? "/app/exames" : "/app");
+  redirect(form.get("destination") === "exams" ? "/app/exames/novo" : "/app");
 }
 
 // ---------------------------------------------------------------------------
